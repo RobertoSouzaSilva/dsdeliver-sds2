@@ -1,12 +1,23 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
 
 function Header() {
+
+  const navigation = useNavigation();
+
+    const HandleOnPress = () =>{
+      navigation.navigate('Home');
+    }
+
+
   return (
-    <View style={styles.container}>
-        <Image source={require('../assets/logo.png')} />
-        <Text style={styles.text}>Ds Delivery</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={HandleOnPress}>
+      <View style={styles.container}>
+          <Image source={require('../assets/logo.png')} />
+          <Text style={styles.text}>Ds Delivery</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
